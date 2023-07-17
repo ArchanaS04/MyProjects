@@ -7,11 +7,11 @@ import pyttsx3
 class ObjectDetector:
     def __init__(self):
         self.classNames = []
-        with open('coco.names', 'rt') as f:
+        with open('obj_detection\\coco.names', 'rt') as f:
             self.classNames = [line.rstrip() for line in f]
 
-        self.configPath = 'ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt'
-        self.weightsPath = 'frozen_inference_graph.pb'
+        self.configPath = 'obj_detection\\ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt'
+        self.weightsPath = 'obj_detection\\frozen_inference_graph.pb'
 
         self.net = cv2.dnn_DetectionModel(self.weightsPath, self.configPath)
         self.net.setInputSize(320, 320)
